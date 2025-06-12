@@ -1,19 +1,14 @@
-import random
-import time
-import os
-
-
-def low_reproducibility_random(a:int, b:int) -> int:
-    # Introduce entropy using system time and OS randomness
-    seed = time.time() + int.from_bytes(os.urandom(4), 'little')
-    random.seed(seed)
-
-    return random.randint(a, b)
-
 def game():
-    times = low_reproducibility_random(1,14)
+    # Set up game
+    print("How many pencils would you like to use:")
+    times: int = int(input())
+    # Set first player
+    print("Who will be the first (John, Jack):")
+    first_player = str(input())
+
+    # Starting output
     print("|" * times)
-    print("Your turn!")
+    print(f"{first_player} is going first!")
 
 
 if __name__ == '__main__':
